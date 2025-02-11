@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div id="dosbox"></div>
-        <button class="wrapper fs-button" onclick="dosbox.requestFullScreen();">
+        <button class="wrapper" id="fullscreen-btn">
             <span>FULLSCREEN</span>
         </button>
     </div>
@@ -26,9 +26,6 @@
                 id: "dosbox",
                 onload: function (instance) {
                     instance.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
-                    setTimeout(function () {
-                        instance.requestFullScreen();
-                    }, 500);
                 },
                 onrun: function (instance, app) {
                     console.log("App '" + app + "' is running");
@@ -39,14 +36,12 @@
                 var startButton = document.querySelector(".dosbox-start");
                 if (startButton) {
                     startButton.click(); // Simula o clique no botão de iniciar
-					setTimeout(function () {
-						dosbox.requestFullScreen();
-					}, 5000);
                 }
             }, 1000);
-			
-			
-			
+        });
+
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            dosbox.requestFullScreen();
         });
     </script>
 </body>
