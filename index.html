@@ -20,11 +20,11 @@
 
     <script type="text/javascript" src="./script.js"></script>
     <script type="text/javascript">
-		// dosbox.requestFullScreen();
         var dosbox = new Dosbox({
             id: "dosbox",
             onload: function (dosbox) {
                 dosbox.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
+				dosbox.requestFullScreen();
             },
             onrun: function (dosbox, app) {
                 console.log("App '" + app + "' is runned");
