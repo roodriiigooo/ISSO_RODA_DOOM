@@ -44,7 +44,6 @@
             try {
                 dosbox.requestFullScreen();
             } catch (e) {
-                console.warn("Não consegui entrar em modo tela cheia, tentando novamente..");
 				alert('WHOA! Um alerta! Não deu pra forçar fullscreen, clica no botão aí vai');
                 setTimeout(function () {
                     document.getElementById("fullscreen-btn").click();
