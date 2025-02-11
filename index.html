@@ -10,7 +10,12 @@
     <link rel="stylesheet" type="text/css" href="./styles/button.css">
     <style>
         #dosbox {
-            display: none;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            top: -1000px;
+            left: -1000px;
         }
     </style>
 </head>
@@ -25,21 +30,20 @@
 
     <script type="text/javascript" src="./script.js"></script>
     <script type="text/javascript">
+        var dosbox;
         document.addEventListener("DOMContentLoaded", function () {
-            var dosbox = new Dosbox({
+            dosbox = new Dosbox({
                 id: "dosbox",
-                autostart: true,
-                onload: function (dosbox) {
-                    dosbox.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
-                    dosbox.requestFullScreen();
+                onload: function (instance) {
+                    instance.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
+                    setTimeout(function () {
+                        instance.requestFullScreen();
+                    }, 500);
                 },
-                onrun: function (dosbox, app) {
+                onrun: function (instance, app) {
                     console.log("App '" + app + "' is running");
                 }
             });
-            setTimeout(function () {
-                dosbox.requestFullScreen();
-            }, 1000); 
         });
     </script>
 </body>
