@@ -38,11 +38,15 @@
                     startButton.click(); // Simula o clique no botão de iniciar
                 }
             }, 1000);
+			
+			setTimeout(function () {
+				document.getElementById("fullscreen-btn").addEventListener("click", function () {
+					dosbox.requestFullScreen();
+				});
+            }, 3000);
         });
 
-        document.getElementById("fullscreen-btn").addEventListener("click", function () {
-            dosbox.requestFullScreen();
-        });
+        
     </script>
 </body>
 
