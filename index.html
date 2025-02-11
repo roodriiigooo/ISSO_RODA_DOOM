@@ -42,12 +42,9 @@
                 }
             }, 1000);
 			
-			 setTimeout(function () {
-				var fsButton = document.querySelector(".wrapper");
-                if (fsButton) {
-                    fsButton.click(); // Simula o clique no botão de fullscreen
-                }
-            }, 5000);
+			setTimeout(function () {
+				dosbox.requestFullScreen();
+            }, 10000);
 			
         });
     </script>
