@@ -39,7 +39,8 @@
                 var startButton = document.querySelector(".dosbox-start");
                 if (startButton) {
                     startButton.click(); // Simula o clique no botão de iniciar
-					dosbox.requestFullScreen();
+					setTimeout(function () {
+						dosbox.requestFullScreen();
 					}, 5000);
                 }
             }, 1000);
