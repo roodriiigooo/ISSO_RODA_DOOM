@@ -23,6 +23,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             var dosbox = new Dosbox({
                 id: "dosbox",
+                autostart: true,
                 onload: function (dosbox) {
                     dosbox.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
                     dosbox.requestFullScreen();
@@ -31,6 +32,9 @@
                     console.log("App '" + app + "' is running");
                 }
             });
+            setTimeout(function () {
+                dosbox.requestFullScreen();
+            }, 1000); 
         });
     </script>
 </body>
