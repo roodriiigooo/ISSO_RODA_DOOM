@@ -13,8 +13,8 @@
 <body>
     <div class="container">
         <div id="dosbox"></div>
-        <button class="wrapper" onclick="dosbox.requestFullScreen();">
-            <span class="fs-button">FULLSCREEN</span>
+        <button class="wrapper fs-button" onclick="dosbox.requestFullScreen();">
+            <span>FULLSCREEN</span>
         </button>
     </div>
 
@@ -39,8 +39,9 @@
                 var startButton = document.querySelector(".dosbox-start");
                 if (startButton) {
                     startButton.click(); // Simula o clique no botão de iniciar
+					var fsButton = document.querySelector(".fs-button");
 					setTimeout(function () {
-						dosbox.requestFullScreen();
+						fsButton.click();
 					}, 5000);
                 }
             }, 1000);
