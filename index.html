@@ -28,7 +28,6 @@
                     instance.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
                     setTimeout(function () {
                         instance.requestFullScreen();
-                        instance.sendKey(13); // Simula pressionar Enter para iniciar automaticamente
                     }, 500);
                 },
                 onrun: function (instance, app) {
@@ -48,7 +47,7 @@
                 if (fsButton) {
                     fsButton.click(); // Simula o clique no botão de fullscreen
                 }
-            }, 3000);
+            }, 10000);
 			
         });
     </script>
