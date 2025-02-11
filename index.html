@@ -26,27 +26,31 @@
                 id: "dosbox",
                 onload: function (instance) {
                     instance.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
+                    setTimeout(function () {
+                        var startButton = document.querySelector(".dosbox-start");
+                        if (startButton) {
+                            startButton.click(); // Simula o clique no botão de iniciar
+                            document.getElementById("fullscreen-btn").click();
+                        }
+                    }, 1000);
                 },
                 onrun: function (instance, app) {
                     console.log("App '" + app + "' is running");
                 }
             });
-
-            setTimeout(function () {
-                var startButton = document.querySelector(".dosbox-start");
-                if (startButton) {
-                    startButton.click(); // Simula o clique no botão de iniciar
-                }
-            }, 1000);
-			
-			setTimeout(function () {
-				document.getElementById("fullscreen-btn").addEventListener("click", function () {
-					dosbox.requestFullScreen();
-				});
-            }, 3000);
         });
 
-        
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            try {
+                dosbox.requestFullScreen();
+            } catch (e) {
+                console.warn("Não consegui entrar em modo tela cheia, tentando novamente..");
+				alert('WHOA! Um alerta! Não deu pra forçar fullscreen, clica no botão aí vai');
+                setTimeout(function () {
+                    document.getElementById("fullscreen-btn").click();
+                }, 1000);
+            }
+        });
     </script>
 </body>
 
