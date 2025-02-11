@@ -32,7 +32,7 @@ body {
 }
 
 #dosbox .dosbox-start {
-  background: url(https://static.tumblr.com/98vyz1x/eK4lj7luf/header.png) center no-repeat;
+  background: url(./assets/img/header.png) center no-repeat;
   background-size: 150px;
   height: 100%;
   image-rendering: pixelated;

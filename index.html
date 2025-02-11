@@ -28,12 +28,20 @@
                     instance.run("./roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
                     setTimeout(function () {
                         instance.requestFullScreen();
+                        instance.sendKey(13); // Simula pressionar Enter para iniciar automaticamente
                     }, 500);
                 },
                 onrun: function (instance, app) {
                     console.log("App '" + app + "' is running");
                 }
             });
+
+            setTimeout(function () {
+                var startButton = document.querySelector(".dosbox-start");
+                if (startButton) {
+                    startButton.click(); // Simula o clique no botão de iniciar
+                }
+            }, 1000);
         });
     </script>
 </body>
